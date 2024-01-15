@@ -1,0 +1,36 @@
+#include "Barrier.h"
+#include "DxLib.h"
+
+Barrier::Barrier() : images(NULL), life_span(1000)
+{
+	//画像の読み込み
+	image = LoadGraph("Resource/images/barrier.png");
+
+	//エラーチェック
+	if (image == -1)
+	{
+		throw ("Resource/images/barrier.pngがありません\n");
+	}
+}
+
+
+Barrier::~Barrier()
+{
+	//読み込んだ画像を消去
+	DeleteGraph(images);
+}
+
+
+//描画処理
+void Barrier::Draw(const Vector2D& location)
+{
+	DrawRotaGraphF(location.x, location.y, 1.0, 0.0, image, TRUE);
+}
+
+
+//寿命vが尽きたか?
+bool Barrier::IsFinished(float speed)
+{
+	life_span -= speed;
+	return (life_span <= 0);
+}
