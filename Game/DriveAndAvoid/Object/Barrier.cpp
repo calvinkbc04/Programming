@@ -1,7 +1,7 @@
 #include "Barrier.h"
 #include "DxLib.h"
 
-Barrier::Barrier() : images(NULL), life_span(1000)
+Barrier::Barrier() : image(NULL), life_span(1000)
 {
 	//‰æ‘œ‚Ì“Ç‚İ‚İ
 	image = LoadGraph("Resource/images/barrier.png");
@@ -17,7 +17,7 @@ Barrier::Barrier() : images(NULL), life_span(1000)
 Barrier::~Barrier()
 {
 	//“Ç‚İ‚ñ‚¾‰æ‘œ‚ğÁ‹
-	DeleteGraph(images);
+	DeleteGraph(image);
 }
 
 

@@ -2,12 +2,12 @@
 #include <stdio.h>
 #include <string.h>
 
-RankingData::SetRankingData()
+RankingData::RankingData()
 {
 	for (int i = 0; i < 6; i++)
 	{
-		score{ i } = NULL;
-		rank{ i } = NULL;
+		score[i] = NULL;
+		rank[i] = NULL;
 		for (int j = 0; j < 15; j++)
 		{
 			name[i][j] = '\0';
@@ -98,7 +98,7 @@ void RankingData::SortData()
 				score[j] = tmp;
 
 				char buf[15] = {};
-				strcpy_s(buf, name[j]);
+				strcpy_s(buf, name[i]);
 				strcpy_s(name[i], name[j]);
 				strcpy_s(name[j], buf);
 			}
@@ -110,13 +110,13 @@ void RankingData::SortData()
 	{
 		rank[i] = 1;
 	}
-	for (int i = 0; 1 < 5; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		for (int j = i + 1; j < 6; j++)
 		{
 			if (score[i] > score[j])
 			{
-				rank[j]++
+				rank[j]++;
 			}
 		}
 	}

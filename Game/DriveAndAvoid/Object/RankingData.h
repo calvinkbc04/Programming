@@ -8,7 +8,7 @@ private:
 	char name[6][15];	//名前データ
 
 public:
-	RankingDate();
+	RankingData();
 	~RankingData();
 
 	void Initialize();	//初期処理
