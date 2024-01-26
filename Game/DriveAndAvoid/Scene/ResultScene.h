@@ -5,10 +5,10 @@
 class ResultScene : public SceneBase
 {
 private:
-	int back_ground;
-	int score;
-	int enemy_count[3];
-	int enemy_image[3];
+	int back_ground;		//”wŒi‰æ‘œ
+	int score;				//ƒXƒRƒA
+	int enemy_count[3];		//“G‚ÌƒJƒEƒ“ƒg
+	int enemy_image[3];		//“G‰æ‘œ
 
 public:
 	ResultScene();

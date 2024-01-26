@@ -2,6 +2,19 @@
 #include "../Utility/InputControl.h"
 #include "DxLib.h"
 
+/*********************************************************************
+ランキング画面がバグった時のためのバックアップ
+ranking.csvにコピペ
+↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+20000, 1, NANASHI,
+10000, 2, NANASHIO,
+5000, 3, NANASHIA,
+1000, 4, NANASHIE,
+500, 5, NANASHIKI,
+
+**********************************************************************/
+
 RankingDispScene::RankingDispScene() : background_image(NULL), ranking(nullptr)
 {
 
@@ -50,7 +63,7 @@ void RankingDispScene::Draw() const
 	//取得したランキングデータを描画する
 	for (int i = 0; i < 5; i++)
 	{
-		DrawFormatString(50, 170 + i * 25, 0xffffff, "%2d, %-15s, %6d", 
+		DrawFormatString(50, 170 + i * 25, 0xffffff, "%2d. %-15s %6d", 
 			ranking->GetRank(i), ranking->GetName(i), ranking->GetScore(i));
 	}
 }

@@ -194,30 +194,6 @@ void Player::Movement()
 		move += Vector2D(0.0f, 1.0f);
 	}
 
-	/*
-	
-	//L_スティック移動処理
-	if (InputControl::GetLeftStick())
-	{
-		move += Vector2D(-1.0f, 0.0f);
-		angle = -DX_PI_F / 18;
-	}
-	if (InputControl::GetLeftStick().x > 0.0f)
-	{
-		move += Vector2D(1.0f, 0.0f);
-		angle = DX_PI_F / 18;
-	}
-	if (InputControl::GetButton(XINPUT_BUTTON_DPAD_UP))
-	{
-		move += Vector2D(0.0f, -1.0f);
-	}
-	if (InputControl::GetButton(XINPUT_BUTTON_DPAD_DOWN))
-	{
-		move += Vector2D(0.0f, 1.0f);
-	}
-	
-	*/
-
 	location += move;
 
 	//画面外にいかないように制限する
@@ -232,22 +208,22 @@ void Player::Acceleration()
 {
 	
 
-	//LBボタンが押されたら、減速する
+	//LBボタンが押されたら、減速する																				//MinSpeed↓
 	if (InputControl::GetButtonDown(XINPUT_BUTTON_LEFT_SHOULDER) && speed > 1.0f || InputControl::GetLeftTrigger() && speed > 1.0f)
 	{
 		speed -= 0.3f;
 	}
 
-	//RBボタンが押されたら、加速する
-	if (InputControl::GetButtonDown(XINPUT_BUTTON_RIGHT_SHOULDER) && speed < 10.0f || InputControl::GetRightTrigger() && speed < 30.0f)
+	//RBボタンが押されたら、加速する																					//MaxSpeed↓
+	if (InputControl::GetButtonDown(XINPUT_BUTTON_RIGHT_SHOULDER) && speed < 10.0f || InputControl::GetRightTrigger() && speed < 100.0f)
 	{
-		speed += 0.2f;
+		speed += 10.2f;
 	}
 
 	//どのボタンも押されていなかったら、減速する
 	if (InputControl::GetRightTrigger() <= 0.5f && speed > 1.0f)
 	{
-		speed -= 0.1f;
+		speed -= 0.05f;
 	}
 }
 
