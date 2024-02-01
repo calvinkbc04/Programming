@@ -215,9 +215,9 @@ void Player::Acceleration()
 	}
 
 	//RBボタンが押されたら、加速する																					//MaxSpeed↓
-	if (InputControl::GetButtonDown(XINPUT_BUTTON_RIGHT_SHOULDER) && speed < 10.0f || InputControl::GetRightTrigger() && speed < 100.0f)
+	if (InputControl::GetButtonDown(XINPUT_BUTTON_RIGHT_SHOULDER) && speed < 10.0f || InputControl::GetRightTrigger() && speed < 25.0f)
 	{
-		speed += 10.2f;
+		speed += 0.2f;
 	}
 
 	//どのボタンも押されていなかったら、減速する

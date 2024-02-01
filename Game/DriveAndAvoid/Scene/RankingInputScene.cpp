@@ -108,7 +108,7 @@ void RankingInputScene::Draw() const
 		}
 		else
 		{
-			DrawBox(0, 0, font_size, font_size, 
+			DrawBox(83, 400, 133, 425, 
 				GetColor(255, 255, 255), FALSE);
 		}
 	}
@@ -142,22 +142,48 @@ bool RankingInputScene::InputName()
 		if (cursor_x > 0)
 		{
 			cursor_x--;
+
+			if (cursor_y == 4)
+			{
+				if (cursor_x < 0)
+				{
+					cursor_x = 1;
+				}
+			}
 		}
 		else
 		{
-			cursor_x = 12;
+			if (cursor_y == 4)
+			{
+				cursor_x = 1;
+			}
+			else
+			{
+				cursor_x = 12;
+			}
 		}
+
+		
 	}
 	if (InputControl::GetButtonDown(XINPUT_BUTTON_DPAD_RIGHT))
 	{
 		if (cursor_x < 12)
 		{
 			cursor_x++;
+
+			if (cursor_y == 4)
+			{
+				if (cursor_x > 1)
+				{
+					cursor_x = 0;
+				}
+			}
 		}
 		else
 		{
 			cursor_x = 0;
 		}
+
 	}
 	if (InputControl::GetButtonDown(XINPUT_BUTTON_DPAD_UP))
 	{
