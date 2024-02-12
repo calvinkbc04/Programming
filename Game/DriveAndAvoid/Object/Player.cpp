@@ -175,6 +175,7 @@ void Player::Movement()
 	angle = 0.0f;
 
 	//\šˆÚ“®ˆ—
+	/* || InputControl::GetLeftStick()*/
 	if (InputControl::GetButton(XINPUT_BUTTON_DPAD_LEFT))
 	{
 		move += Vector2D(-1.0f, 0.0f);
@@ -226,10 +227,3 @@ void Player::Acceleration()
 		speed -= 0.05f;
 	}
 }
-
-/*
-InputControl::GetRightTrigger()
-InputControl::GetLeftTrigger()
-
-Vector2D InputControl::GetLeftStick()
-*/
